@@ -27,9 +27,9 @@ class SearchController < ApplicationController
     node.css('li > a').each do |a|
       relational_keyword = a.attributes['title'].value
       relational_keyword_url = a.attributes['href'].value
-      keywords[relational_keyword] = 'https://ja.wikipedia.org' + URI.encode(relational_keyword_url)
+      keywords[relational_keyword] = 'https://ja.wikipedia.org' + relational_keyword_url
     end
-    
+
     @keywords = keywords
     render json: @keywords
   end
